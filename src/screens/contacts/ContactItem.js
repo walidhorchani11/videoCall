@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   touchableAreaStyle: {
     backgroundColor: 'green',
     margin: 2,
-    padding: 15
+    padding: 20
   },
   textStyle: {
     color: 'white',
