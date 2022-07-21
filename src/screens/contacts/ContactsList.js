@@ -1,26 +1,29 @@
 import React from 'react';
-
-import ContactItem from './ContactItem';
-
 import {
   StyleSheet,
-  FlatList,
+  SectionList,
 } from 'react-native';
 
-import { CONTACTS } from './data'
-const renderItem = ({ item }) => <ContactItem item={item} />
+import ContactItem from './ContactItem';
+import HeaderSection from './HeaderSection';
 
+import { CONTACTSFORMATTED } from './data';
+
+const renderItem = ({ item }) => {
+  return (
+    <ContactItem item={item} />
+  )
+}
 
 const ContactList = () => {
 
   return (
-    <FlatList
-      data={CONTACTS}
+    <SectionList
+      sections={CONTACTSFORMATTED}
       renderItem={renderItem}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item, index) => item + index}
+      renderSectionHeader={({ section: { title } }) => (<HeaderSection title={title} />)}
       style={styles.flatListStyle}
-      key={Date.now()}
-      numColumns={1}
     />
   )
 }
@@ -28,8 +31,7 @@ const ContactList = () => {
 const styles = StyleSheet.create({
   flatListStyle: {
     marginVertical: 10,
-    backgroundColor: 'yellow'
-  }
+  },
 })
 
 export default ContactList;

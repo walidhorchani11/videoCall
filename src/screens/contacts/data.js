@@ -12,43 +12,59 @@ export const CONTACTS = [{
 },
 {
   id: '3ac68fc-c605-48d3-a4f8-fbd91aa97f63',
-  title: '444 Item',
+  title: 'Nawel Item',
 },
 {
   id: '58694a0f-3da1-471f-b96-145571e29d72',
-  title: '5555 Item',
+  title: 'janjouna Item',
 },
 {
   id: '3ac68afc-c5-48d3-a4f8-fbd91aa97f63',
-  title: '66666 Item',
+  title: 'Zakia Item',
 },
 {
   id: '58694a0f-3da1-471f-bd96-15571e29d72',
-  title: '777777 Item',
+  title: 'Zinka Item',
 },
 {
   id: '3a68afc-c605-48d3-a4f8-fbd91aa97f63',
-  title: '88888-88 Item',
+  title: 'walid-88 Item',
 },
 {
   id: '586a0f-3da1-471f-bd96-145571e29d72',
-  title: '999999 Item',
+  title: 'Nourchen Item',
 },
 {
   id: '3a68afc-c605-48d3-a4f8-fbd9197f63',
-  title: '99999 Item',
+  title: 'nounou Item',
 },
 {
   id: '586a0f-3da1-471f-bd96-5571e29d72',
-  title: '101010101010 Item',
+  title: 'jannet Item',
 },
 {
   id: '3a68afc-c605-48d3-f8-fbd91aa97f63',
-  title: '11-11--11--11 Item',
+  title: 'Jamel Item',
 },
 {
   id: '586a0fda1-471f-bd96-145571e29d72',
-  title: '12-12-12-13 Item',
+  title: 'noaman Item',
 },
 
+];
+
+
+export const CONTACTSFORMATTED = [
+  {
+    title: "N",
+    data: ["Nourchen", "Nounou", "nana"]
+  },
+  {
+    title: "Z",
+    data: ["Zakia", "zinka", "zankalouna"]
+  },
+  {
+    title: "w",
+    data: ["Walid", "walidos", "wawa", "wiwi"]
+  }
 ];
