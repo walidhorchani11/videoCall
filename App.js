@@ -5,7 +5,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import ContactsList from './src/screens/contacts/ContactsList';
+import ContactsList from 'src/screens/contacts/ContactsList';
 
 const App = () => {
 
