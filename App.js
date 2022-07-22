@@ -5,14 +5,14 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import ContactsList from 'src/screens/contacts/ContactsList';
+import ContactScreen from 'src/screens/contacts/ContactScreen';
 
 const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle='light-content' />
-      <ContactsList />
+      <ContactScreen />
     </SafeAreaView>
   );
 };
