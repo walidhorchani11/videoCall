@@ -15,11 +15,28 @@ const renderItem = ({ item }) => {
   )
 }
 
-const ContactList = () => {
+const ContactList = ({ search }) => {
+
+  const res = CONTACTSFORMATTED.reduce((acc, elem, index, tab) => {
+    const { data } = elem;
+    const exist = data.some((el) => {
+      if (el.indexOf(search) != -1) {
+        return true;
+      }
+      return false;
+    });
+
+    if (exist) {
+      acc.push(elem);
+    }
+
+    return acc;
+
+  }, [])
 
   return (
     <SectionList
-      sections={CONTACTSFORMATTED}
+      sections={res}
       renderItem={renderItem}
       keyExtractor={(item, index) => item + index}
       renderSectionHeader={({ section: { title } }) => (<HeaderSection title={title} />)}
