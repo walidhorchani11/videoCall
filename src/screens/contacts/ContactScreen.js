@@ -11,7 +11,7 @@ const ContactScreen = () => {
   const [search, setSearch] = useState('');
 
   return (
-    <View>
+    <View style={{}}>
       <CustomInput
         style={{ borderWidth: 3, borderColor: 'blue' }}
         placeholder='search contact'

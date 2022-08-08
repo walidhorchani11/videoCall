@@ -12,7 +12,7 @@ const CallingScreen = () => {
       </Text>
 
       </View>
-      <View style={{ backgroundColor: 'black', height: '30%', borderTopRightRadius: 40, borderTopLeftRadius: 40, justifyContent: 'space-evenly', alignItems: 'center', flexDirection: 'row' }}>
+      <View style={{ backgroundColor: 'black', height: '15%', borderTopRightRadius: 40, borderTopLeftRadius: 40, justifyContent: 'space-evenly', alignItems: 'center', flexDirection: 'row' }}>
         <Text>
           <Icon name={"photo-camera"} size={50} color="white" />
         </Text>
