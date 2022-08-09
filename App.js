@@ -4,7 +4,7 @@ import {
   SafeAreaView
 } from 'react-native';
 
-import { NavigationStack } from 'src/navigation/stack/Navigation'
+import { NavigationStack } from '@navigation/stack/Navigation';
 
 const App = () => {
 
