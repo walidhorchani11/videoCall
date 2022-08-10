@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
   textStyle: {
     color: 'white',
     fontSize: 29,
+    transform: [{ 'translateX': 4 }],
     fontWeight: '800',
   }
 })
