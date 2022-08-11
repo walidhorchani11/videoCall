@@ -11,8 +11,9 @@ module.exports = {
       'module-resolver',
       {
         alias: {
-          '@components': './src/components',
-          '@navigation': './src/navigation'
+          'components': './src/components',
+          'navigation': './src/navigation',
+          'screens': './src/screens',
         },
         root: ['.'],
       },

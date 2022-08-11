@@ -8,6 +8,9 @@
       "@navigation": [
         "navigation"
       ],
+      "@screens": [
+        "screens"
+      ]
     }
   },
   "exclude": [
