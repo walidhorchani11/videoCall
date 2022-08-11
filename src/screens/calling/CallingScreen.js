@@ -1,15 +1,16 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { TextInput, StyleSheet, View, Text } from 'react-native';
+import { Button, StyleSheet, View, Text } from 'react-native';
 
-const CallingScreen = () => {
+const CallingScreen = ({ navigation }) => {
   return (
     <View style={{ backgroundColor: 'white', flex: 1 }}>
       <View style={{ flex: 2 }}>
         <Text>
           nom person receiver
       </Text>
+        <Button title="tab menu test" onPress={() => { navigation.navigate('MenuTab', { params: { idd: 1254 } }) }} />
 
       </View>
       <View style={{ backgroundColor: 'black', height: '15%', borderTopRightRadius: 40, borderTopLeftRadius: 40, justifyContent: 'space-evenly', alignItems: 'center', flexDirection: 'row' }}>
