@@ -4,8 +4,8 @@ import {
   View
 } from 'react-native';
 
-import ContactList from '@components/contacts/ContactList';
-import CustomInput from '@components/input/CustomInput';
+import ContactList from 'components/contacts/ContactList';
+import CustomInput from 'components/input/CustomInput';
 
 const ContactScreen = () => {
   const [search, setSearch] = useState('');

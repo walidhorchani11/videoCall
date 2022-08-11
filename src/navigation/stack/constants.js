@@ -6,5 +6,13 @@ const CALLING_ROUTE = {
   name: 'calling'
 }
 
-export { CALLING_ROUTE, CONTACT_ROUTE }
+const SETTING_ROUTE = {
+  name: 'setting'
+}
+
+const HISTORY_ROUTE = {
+  name: 'history'
+}
+
+export { CALLING_ROUTE, CONTACT_ROUTE, HISTORY_ROUTE, SETTING_ROUTE }
 

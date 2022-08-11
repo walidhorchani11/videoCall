@@ -4,8 +4,8 @@ import {
   SectionList,
 } from 'react-native';
 
-import ContactItem from '@components/contacts/ContactItem';
-import HeaderSection from '@components/contacts/HeaderSection';
+import ContactItem from 'components/contacts/ContactItem';
+import HeaderSection from 'components/contacts/HeaderSection';
 
 import { CONTACTSFORMATTED } from './data';
 
