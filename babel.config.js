@@ -14,6 +14,8 @@ module.exports = {
           'components': './src/components',
           'navigation': './src/navigation',
           'screens': './src/screens',
+          'contexts': './src/contexts',
+          'reducers': './src/reducers'
         },
         root: ['.'],
       },

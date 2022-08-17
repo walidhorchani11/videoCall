@@ -10,6 +10,9 @@
       ],
       "@screens": [
         "screens"
+      ],
+      "@contexts": [
+        "contexts"
       ]
     }
   },
