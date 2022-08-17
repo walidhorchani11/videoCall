@@ -1,5 +1,5 @@
-import React, { View, Text } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useContext } from 'react';
+import { StyleSheet, Pressable } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -9,10 +9,16 @@ import ContactScreen from 'src/screens/contacts/ContactScreen';
 import CallingScreen from 'src/screens/calling/CallingScreen';
 import { SettingScreen } from 'screens/setting/SettingScreen';
 import { HistoryScreen } from 'screens/history/HistoryScreen';
+import { SignIn } from 'screens/auth/SingIn';
+import { SignOut } from 'screens/auth/SignOut';
 
 import { TabBackground } from 'navigation/stack/TabBackground';
 
+import { AuthContext } from 'contexts/AuthContext';
+
+
 import { CONTACT_ROUTE, CALLING_ROUTE, SETTING_ROUTE, HISTORY_ROUTE } from 'src/navigation/stack/constants';
+import { LOGOUT } from 'reducers/AuthReducer';
 
 const Stack = createNativeStackNavigator();
 const TabBottom = createBottomTabNavigator();
@@ -44,15 +50,36 @@ const MenuTab = () => {
 }
 
 const NavigationStack = () => {
-
+  const { isLogued, logout } = useContext(AuthContext);
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name={CONTACT_ROUTE.name} component={ContactScreen} />
-          <Stack.Screen name={CALLING_ROUTE.name} component={CallingScreen} />
-          <Stack.Screen name='MenuTab' component={MenuTab} />
-        </Stack.Navigator>
+        {isLogued ?
+          (<Stack.Navigator screenOptions={{
+            headerRight: (props) => {
+              return (
+                <Pressable onPress={async () => {
+                  logout();
+                  console.log('clicked -------logout---------------------');
+                }}>
+                  <Icon name="logout" size={25} style={{ backgroundColor: 'red', padding: 10 }} />
+                </Pressable>
+              )
+            }
+          }}>
+            <Stack.Screen name={CONTACT_ROUTE.name} component={ContactScreen} />
+            <Stack.Screen name={CALLING_ROUTE.name} component={CallingScreen} />
+            <Stack.Screen name='MenuTab' component={MenuTab} />
+
+          </Stack.Navigator>)
+          :
+          (
+            <Stack.Navigator>
+              <Stack.Screen name='login' component={SignIn} />
+              <Stack.Screen name='sign up' component={SignOut} />
+            </Stack.Navigator>
+          )
+        }
       </NavigationContainer>
     </>
   )
