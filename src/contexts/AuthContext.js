@@ -2,7 +2,6 @@ import React, { createContext, useEffect, useMemo, useCallback, useReducer } fro
 import { LOGIN, LOGOUT, RESTORE, authReducer } from 'reducers/AuthReducer';
 import EncryptedStorage from 'react-native-encrypted-storage';
 
-
 // creation context
 // depuis ce context , je vais l utiliser pour recuperer shared val avec useContext
 // creation du provider aussi
@@ -35,7 +34,6 @@ const AuthProvider = ({ children }) => {
 
   // access to secure storage to get token, once at first render
   useEffect(() => {
-    console.log('i am here balizzz -----------------------------')
     // creer une fct asyn to get value token from storage
     const fetchToken = async () => {
       try {

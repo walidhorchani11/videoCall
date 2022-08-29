@@ -13,6 +13,9 @@
       ],
       "@contexts": [
         "contexts"
+      ],
+      "@assets": [
+        "assets"
       ]
     }
   },

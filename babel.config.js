@@ -7,6 +7,7 @@ module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
     ['@babel/plugin-proposal-optional-chaining'],
+    ['react-native-reanimated/plugin'],
     [
       'module-resolver',
       {
@@ -15,7 +16,8 @@ module.exports = {
           'navigation': './src/navigation',
           'screens': './src/screens',
           'contexts': './src/contexts',
-          'reducers': './src/reducers'
+          'reducers': './src/reducers',
+          'assets': './src/assets'
         },
         root: ['.'],
       },

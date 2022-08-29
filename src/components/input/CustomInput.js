@@ -4,7 +4,7 @@ import { TextInput, StyleSheet, View } from 'react-native';
 
 const CustomInput = ({ width, height, icon, onChangeText, placeholder = '', autofocus = false, style = {}, ...rest }) => {
   return (
-    <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'yellow' }} >
+    <View style={{ justifyContent: 'center', alignItems: 'center' }} >
       <TextInput
         style={[styles.TextInputStyle, style]}
         placeholder={placeholder}

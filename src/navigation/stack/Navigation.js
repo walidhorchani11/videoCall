@@ -10,15 +10,14 @@ import CallingScreen from 'src/screens/calling/CallingScreen';
 import { SettingScreen } from 'screens/setting/SettingScreen';
 import { HistoryScreen } from 'screens/history/HistoryScreen';
 import { SignIn } from 'screens/auth/SingIn';
-import { SignOut } from 'screens/auth/SignOut';
+import { Register } from 'screens/auth/Register';
+import { AuthScreen } from 'screens/auth/AuthScreen';
 
 import { TabBackground } from 'navigation/stack/TabBackground';
 
 import { AuthContext } from 'contexts/AuthContext';
 
-
 import { CONTACT_ROUTE, CALLING_ROUTE, SETTING_ROUTE, HISTORY_ROUTE } from 'src/navigation/stack/constants';
-import { LOGOUT } from 'reducers/AuthReducer';
 
 const Stack = createNativeStackNavigator();
 const TabBottom = createBottomTabNavigator();
@@ -60,7 +59,6 @@ const NavigationStack = () => {
               return (
                 <Pressable onPress={async () => {
                   logout();
-                  console.log('clicked -------logout---------------------');
                 }}>
                   <Icon name="logout" size={25} style={{ backgroundColor: 'red', padding: 10 }} />
                 </Pressable>
@@ -74,9 +72,10 @@ const NavigationStack = () => {
           </Stack.Navigator>)
           :
           (
-            <Stack.Navigator>
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
+              <Stack.Screen name='auth' component={AuthScreen} />
               <Stack.Screen name='login' component={SignIn} />
-              <Stack.Screen name='sign up' component={SignOut} />
+              <Stack.Screen name='Register' component={Register} />
             </Stack.Navigator>
           )
         }

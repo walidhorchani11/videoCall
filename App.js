@@ -6,7 +6,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 RNAsyncStorageFlipper(AsyncStorage);
 import {
   StatusBar,
-  SafeAreaView
 } from 'react-native';
 
 import { NavigationStack } from 'navigation/stack/Navigation';
