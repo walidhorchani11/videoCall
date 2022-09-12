@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Pressable, Dimensions, StatusBar } from 'react-native';
+import { Text, View, StyleSheet, Pressable, Dimensions, StatusBar, Keyboard } from 'react-native';
 import Animated, { useSharedValue, interpolate, useAnimatedStyle, withTiming, withSpring } from 'react-native-reanimated';
 import { Svg, Ellipse, ClipPath, Image, Defs, LinearGradient, Stop } from 'react-native-svg';
 // todo changer vers components not screens for signin and register
@@ -68,6 +68,7 @@ const AuthScreen = () => {
         <View style={styles.cancelContainerStyle}>
           <Pressable style={styles.pressableBtnStyle} onPress={() => {
             imgTranslate.value = withTiming(0, { duration: 1000 });
+            Keyboard.dismiss()
           }}>
             <Text style={styles.cancelBtnStyle}>X</Text>
           </Pressable>
@@ -131,6 +132,8 @@ const styles = StyleSheet.create({
   },
   formStyle: {
     width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   btnViewStyle: {
     height: 50,
