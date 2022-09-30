@@ -1,0 +1,48 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+  desc "submit a new beta build to apple testflight"
+  desc "this will also make sure the profile is up to date"
+  lane :beta do
+    increment_build_number  # increment locally build number
+
+    match(type: "adhoc")
+    gym(
+      scheme: "videocall",
+      include_bitcode: false,
+    )
+    pilot(
+      skip_waiting_for_build_processing: true  # pour ne pas attendre jusqu a la find u build ipa et passe au clean et commit 
+    )
+    clean_build_artifacts
+    commit_version_bump(
+      message: "Fastlane IOS: Released new build #{lane_context[SharedValues::BUILD_NUMBER]} [ci skip] ",
+      xcodeproj: "./videocall.xcodeproj", # pcq fastalane va chercher et peut trouver plusieurs project, so on va definir le projet
+      force: true
+    )  # commit change do by action increment_build_number, use lane_context to access build number, "ci skip" to avoid ci loop trigered by commit
+
+
+  end
+
+
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    # add actions here: https://docs.fastlane.tools/actions
+  end
+end

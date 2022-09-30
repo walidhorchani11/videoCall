@@ -1,0 +1,8 @@
+app_identifier("io.horchani.videocall") # The bundle identifier of your app
+apple_id("walidhorchani44@gmail.com") # Your Apple Developer Portal username
+
+itc_team_id("691473") # App Store Connect Team ID
+team_id("TXQP9QWMN4") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
