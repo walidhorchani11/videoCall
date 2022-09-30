@@ -25,10 +25,15 @@ const AuthProvider = ({ children }) => {
     dispatch({ type: LOGOUT });
   }, []);
 
-  const login = useCallback((token) => {
-    if (token) {
-      setToken(token);
-      // save new token to secure storage
+  const login = useCallback(async (token) => {
+    try {
+      if (token) {
+        dispatch({ type: LOGIN, payload: { token } })
+        // save new token to secure storage
+        await EncryptedStorage.setItem(USER_SESSION, token);
+      }
+    } catch (error) {
+      console.log(error);
     }
   }, [])
 
@@ -44,7 +49,8 @@ const AuthProvider = ({ children }) => {
           dispatch({ type: RESTORE, payload: { token } });
         }
       } catch (error) {
-        console.log('failed get token from storage ---------------------------------', error);
+        console.error();
+        ('failed get token from storage ---------------------------------', error);
       }
     }
 

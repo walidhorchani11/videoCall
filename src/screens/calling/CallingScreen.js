@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Button, StyleSheet, View, Text } from 'react-native';
 
-const CallingScreen = ({ navigation }) => {
+import { Voximplant } from 'react-native-voximplant';
+
+const CallingScreen = ({ navigation, route }) => {
+  const { isVideoCall, callId } = route.params;
+
+  const Voximplant = new Voximplant.getInstance();
+  const callIdRef = useRef(callId);
+
+  useEffect(() => {
+    let callSettings = {
+      video: {
+        sendVideo: isVideoCall,
+        receiveVideo: isVideoCall
+      }
+    };
+
+    let call;
+    async function makeCall() {
+      call = await Voximplant.call('nounou', callSettings);
+      subscribeToCallEvents()
+      callIdRef.current = call.callId;
+      call.set(call.callId, call);
+
+    }
+  }, []);
   return (
     <View style={{ backgroundColor: 'white', flex: 1 }}>
       <View style={{ flex: 2 }}>

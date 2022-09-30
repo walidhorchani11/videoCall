@@ -6,7 +6,6 @@ export const LOGOUT = 'LOGOUT';
 export const authReducer = (prevstate, { type, payload = {} }) => {
   // il va gerer le state selon type passé dans action
 
-  console.log('type----', type, payload);
   switch (type) {
     case RESTORE: return {
       ...prevstate,

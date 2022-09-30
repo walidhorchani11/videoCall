@@ -28,12 +28,10 @@ const ContactScreen = () => {
   const [search, setSearch] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [dimensions, setDimensions] = useState({ window, screen });
-  console.log({ dimensions });
 
   // useEffect pour faire ul listener pour updater state et du coups update UI whene dimension changed
   useEffect(() => {
     const subscription = Dimensions.addEventListener("change", ({ window, screen }) => {
-      console.log('dimension changeddd------------');
       setDimensions({ window, screen });
     });
     return () => subscription.remove();
