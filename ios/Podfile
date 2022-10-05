@@ -1,5 +1,6 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+pod 'react-native-voximplant', path: '../node_modules/react-native-voximplant'
 
 platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
@@ -32,6 +33,11 @@ target 'videocall' do
 
   post_install do |installer|
     react_native_post_install(installer)
+    installer.pods_project.targets.each do |target|
+      if target.name == "React-Core-AccessibilityResources"
+        target.remove_from_project
+      end
+    end
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
