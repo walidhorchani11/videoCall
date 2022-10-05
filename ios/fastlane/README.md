@@ -25,6 +25,22 @@ submit a new beta build to apple testflight
 
 this will also make sure the profile is up to date
 
+### ios beta2
+
+```sh
+[bundle exec] fastlane ios beta2
+```
+
+test beta 2 with doc fastlane
+
+### ios screenshots
+
+```sh
+[bundle exec] fastlane ios screenshots
+```
+
+screenshots generation and push to appstore
+
 ### ios custom_lane
 
 ```sh
