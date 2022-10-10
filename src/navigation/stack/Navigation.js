@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StyleSheet, Pressable } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -7,11 +7,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ContactScreen from 'src/screens/contacts/ContactScreen';
 import CallingScreen from 'src/screens/calling/CallingScreen';
+import IncomingCallScreen from 'src/screens/calling/IncomingCallScreen';
 import { SettingScreen } from 'screens/setting/SettingScreen';
 import { HistoryScreen } from 'screens/history/HistoryScreen';
 import { SignIn } from 'screens/auth/SingIn';
 import { Register } from 'screens/auth/Register';
 import { AuthScreen } from 'screens/auth/AuthScreen';
+import { Voximplant } from 'react-native-voximplant';
+import calls from '../../screens/calling/Store';
 
 import { TabBackground } from 'navigation/stack/TabBackground';
 
@@ -24,6 +27,18 @@ const TabBottom = createBottomTabNavigator();
 
 
 const MenuTab = () => {
+  const voximplant = Voximplant.getInstance();
+  useEffect(() => {
+    voximplant.on(Voximplant.ClientEvents.IncomingCall, (incomingCallEvent) => {
+      calls.set(incomingCallEvent.call.callId, incomingCallEvent.call);
+      navigation.navigate('IncommingCall', {
+        callId: incomingCallEvent.call.callId,
+      });
+    });
+    return function cleanup() {
+      voximplant.off(Voximplant.ClientEvents.IncomingCall);
+    };
+  }, []);
   return (
     <TabBottom.Navigator screenOptions={({ route }) => (
       {
@@ -68,7 +83,7 @@ const NavigationStack = () => {
             <Stack.Screen name={CONTACT_ROUTE.name} component={ContactScreen} />
             <Stack.Screen name={CALLING_ROUTE.name} component={CallingScreen} />
             <Stack.Screen name='MenuTab' component={MenuTab} />
-
+            <Stack.Screen name='IncommingCall' component={IncomingCallScreen} />
           </Stack.Navigator>)
           :
           (
